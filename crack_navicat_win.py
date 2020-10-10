@@ -64,4 +64,6 @@ def main():
 
 
 if __name__ == "__main__":
+    print("Start to delete registry...")
     main()
+    print("Task done.")
