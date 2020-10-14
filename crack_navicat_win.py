@@ -21,7 +21,7 @@ def get_sub_keys(root, reg_path: str) -> list:
             sub_keys = winreg.EnumKey(key_result, i)
             sub_keys_list.append(sub_keys)
             i += 1
-        except expression:
+        except Exception:
             break
     
     return sub_keys_list
