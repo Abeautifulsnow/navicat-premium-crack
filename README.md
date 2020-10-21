@@ -1,4 +1,4 @@
-# navicat-premium-crack
+# navicat-premium-crack[Windows-Only]
 
 This script is used to crack navicat premium application for another 14 days trial.
 该脚本用来破解`navicat premium`应用，从而重新获取14天试用期限。

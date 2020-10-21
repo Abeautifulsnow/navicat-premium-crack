@@ -1,6 +1,7 @@
 import winreg
 import os
 from collections import deque
+from typing import Any
 
 
 # root
@@ -11,7 +12,17 @@ PREMIUM_PATH = r'Software\PremiumSoft'
 CLSID_PATH = r'Software\Classes\CLSID'
 
 
-def get_sub_keys(root, reg_path: str) -> list:
+def get_sub_keys(root: Any, reg_path: str) -> list:
+    """This function will retrieve a list of sub-keys under the path
+    of `root` + `reg_path`.
+
+    Args:
+        root(Any): Root registry.
+        reg_path(str): The relative specific path under the root registry.
+
+    Returns:
+        The list of sub-keys.
+    """
     key_result = winreg.OpenKeyEx(root, reg_path)
     i: int = 0
     sub_keys_list: list = list()
@@ -21,13 +32,23 @@ def get_sub_keys(root, reg_path: str) -> list:
             sub_keys = winreg.EnumKey(key_result, i)
             sub_keys_list.append(sub_keys)
             i += 1
-        except Exception:
+        except Exception as e:
             break
     
     return sub_keys_list
 
 
-def get_all_keys(root, key_path: str) -> list:
+def get_all_keys(root: Any, key_path: str) -> list:
+    """Get the list of absolute path of all entries under the
+    specified path through the deque.
+
+    Args:
+        root(Any): Root registry.
+        key_path(str): The relative specific path under the root registry.
+
+    Returns:
+        A list of all entries under the keys.
+    """
     all_keys_list: list = list()
 
     qeque = deque()
@@ -49,6 +70,11 @@ def get_all_keys(root, key_path: str) -> list:
 
 
 def main():
+    """The entry function to be executed.
+
+    Returns:
+        None
+    """
     clsid_all_keys_list = get_all_keys(HKEY_CURRENT_USER, CLSID_PATH)
     premium_all_keys_list = get_all_keys(HKEY_CURRENT_USER, PREMIUM_PATH)
 
