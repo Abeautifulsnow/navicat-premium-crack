@@ -1,5 +1,6 @@
 import winreg
 import os
+import time
 from collections import deque
 from typing import Any
 
@@ -77,6 +78,8 @@ def main():
     """
     clsid_all_keys_list = get_all_keys(HKEY_CURRENT_USER, CLSID_PATH)
     premium_all_keys_list = get_all_keys(HKEY_CURRENT_USER, PREMIUM_PATH)
+    premium_sub_keys_list = [os.path.join(PREMIUM_PATH, item) for item in get_sub_keys(HKEY_CURRENT_USER, PREMIUM_PATH)]
+    print(f"premium_sub_keys_list: {premium_sub_keys_list}")
 
     for clsid_item in clsid_all_keys_list:
         if "Info" in clsid_item:
@@ -85,11 +88,23 @@ def main():
             winreg.DeleteKeyEx(HKEY_CURRENT_USER, clsid_item)
             winreg.DeleteKeyEx(HKEY_CURRENT_USER, clsid_item_prefix)
     
+    # The outermost folder is not deleted.
     for premium_item in reversed(premium_all_keys_list):
-        winreg.DeleteKeyEx(HKEY_CURRENT_USER, premium_item)
+        if "Servers" in premium_item:
+            print(f"Tips: Servers => {premium_item} will not be deleted.")
+            pass
+        elif premium_item in premium_sub_keys_list:
+            print(f"Tips: Servers => {premium_item} will not be deleted.")
+            pass
+        else:
+            winreg.DeleteKeyEx(HKEY_CURRENT_USER, premium_item)
 
 
 if __name__ == "__main__":
     print("Start to delete registry...")
     main()
-    print("Task done.")
+    print("Task done.", "Windows will closed after 5 seconds...", sep="\n")
+
+    for i in range(5):
+        time.sleep(1)
+        print("*" * (i + 1))
