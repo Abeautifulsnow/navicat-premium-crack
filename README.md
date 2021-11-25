@@ -19,6 +19,8 @@ python3 crack_navicat_win.py
 
 * 方法二[**推荐**]，直接执行`exe`可执行文件，这种方式不需要有python环境。将`./dist/crack_navicat_win.exe`下载到windows本地，直接双击运行即可。
 
+或者在这里直接下载编译好的exe文件到本地:[资源路径](https://github.com/Abeautifulsnow/navicat-premium-crack/releases)
+
 对于方法二，鉴于 `navicat` 试用期只有14天，故而最好在windows下设置一个系统定时任务，免去每次手动执行的操作。具体怎么设置windows的定时任务，请自行Google or Baidu。
 
 ## 3)对于mac版本的破解版，下面放一个链接，自行提取
