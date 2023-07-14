@@ -1,3 +1,4 @@
+# ⚠️⚠️⚠️ 当前只支持16.2(不包括)之前的！！！
 # navicat-premium-crack[Windows-Only]
 
 This script is used to crack navicat premium application for another 14 days trial.
