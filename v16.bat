@@ -1,3 +1,5 @@
+@echo off
+
 echo Delete HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium\Update
 echo Delete HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium\Registration[version and language]
 for /f %%i in ('"REG QUERY "HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium" /s | findstr /L Registration"') do (
@@ -15,3 +17,6 @@ for /f "tokens=*" %%a in ('reg query "HKEY_CURRENT_USER\Software\Classes\CLSID"'
     reg delete %%a /f
   )
 )
+
+pause
+exit
