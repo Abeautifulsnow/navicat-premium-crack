@@ -1,4 +1,4 @@
-# ⚠️⚠️⚠️ 当前只支持16.2(不包括)之前的！！！
+# ⚠️⚠️⚠️ 主分支当前只支持16.2(不包括)之前的！！！需要自动重置16版本以上的，切换分支到v16.
 # navicat-premium-crack[Windows-Only]
 
 This script is used to crack navicat premium application for another 14 days trial.
@@ -36,4 +36,4 @@ python3 crack_navicat_win.py
 
 ## 4) 最后声明
 
-该方法仅供个人学习使用，请勿他用。
+该方法仅供个人学习使用，请勿滥用和他用。
